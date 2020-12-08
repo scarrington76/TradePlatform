@@ -8,3 +8,6 @@
 #todo research measurement of support and resistance lines
 #todo check the prices every x mins
 #todo stock screener - what params are available?
+#todo get option contract prices
+#todo get daily report of prices
+#todo wash sale alert/restriction
