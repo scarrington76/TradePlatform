@@ -11,3 +11,4 @@
 #todo get option contract prices
 #todo get daily report of prices
 #todo wash sale alert/restriction
+#todo What’s my strategy here? what was I hoping for? was there an event I was looking toward? etc.....Track strategy
