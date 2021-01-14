@@ -30,7 +30,7 @@ class IBapi(EWrapper, EClient):
         print('Tick Size. Ticker ID:', reqId, 'ticktype:', TickTypeEnum.to_str(tickType), 'Size:', size)
 
 def run_loop():
-	app.run()
+    app.run()
 
 
 app = IBapi()
@@ -49,16 +49,16 @@ eurusd_contract.symbol = 'XOM'
 eurusd_contract.secType = 'STK'
 eurusd_contract.exchange = 'NYSE'
 eurusd_contract.currency = 'USD'
-eurusd_contract.primaryExchange = 'NYSE'
+
 
 # Request historical candles
-# result = app.reqMarketDataType(0)
-# print (type(result))
-# app.reqMarketDataType(3)
-# app.reqMktData(1, eurusd_contract, '', False, False, [])
+result = app.reqMarketDataType(0)
+print (type(result))
+app.reqMarketDataType(3)
+app.reqMktData(1, eurusd_contract, '', False, False, [])
 
-df = pd.DataFrame(sh.get_stock_details())
-print (df)
+# df = pd.DataFrame(sh.get_stock_details())
+# print (df)
 
 
 
