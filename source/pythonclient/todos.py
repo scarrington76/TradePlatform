@@ -6,7 +6,7 @@
 #todo warning or some real time indicator of potential wash sales
 #todo 52 week high and low
 #todo research measurement of support and resistance lines
-#todo check the prices every x mins
+
 #todo stock screener - what params are available?
 #todo get option contract prices
 #todo get daily report of prices
