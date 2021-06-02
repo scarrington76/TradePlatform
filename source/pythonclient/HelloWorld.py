@@ -24,7 +24,7 @@ class IBapi(EWrapper, EClient):
         self.data.append([bar.date, bar.close])
 
     def tickPrice(self, reqId, tickType, price, attrib):
-        print('Tick Price: Ticker ID:', reqId, 'tickType:', TickTypeEnum.to_str(tickType), 'Price:', price, end=' ')
+        print('Tick Price: Ticker ID:', reqId, 'tickType:', TickTypeEnum.to_str(tickType), 'Price:', price, 'Time: ', time.strftime('%X %x %Z'), end=' ')
 
     def tickSize(self, reqId, tickType, size):
         print('Tick Size. Ticker ID:', reqId, 'ticktype:', TickTypeEnum.to_str(tickType), 'Size:', size)
@@ -45,7 +45,7 @@ sh = stockhash.Stockhash()
 
 # Create contract object
 eurusd_contract = Contract()
-eurusd_contract.symbol = 'XOM'
+eurusd_contract.symbol = 'SPY'
 eurusd_contract.secType = 'STK'
 eurusd_contract.exchange = 'NYSE'
 eurusd_contract.currency = 'USD'
