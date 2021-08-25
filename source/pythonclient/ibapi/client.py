@@ -321,7 +321,7 @@ class EClient(object):
             market data returns, it will be identified by this tag. This is
             also used when canceling the market data.
         contract:Contract - This structure contains a description of the
-            Contractt for which market data is being requested.
+            Contract for which market data is being requested.
         genericTickList:str - A commma delimited list of generic tick types.
             Tick types can be found in the Generic Tick Types page.
             Prefixing w/ 'mdoff' indicates that top mkt data shouldn't tick.

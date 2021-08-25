@@ -6,6 +6,7 @@ from ibapi.wrapper import EWrapper, TickTypeEnum
 from ibapi.contract import  Contract
 import pandas as pd
 import stockhash
+import psycopg2
 
 
 class IBapi(EWrapper, EClient):
@@ -24,13 +25,29 @@ class IBapi(EWrapper, EClient):
         self.data.append([bar.date, bar.close])
 
     def tickPrice(self, reqId, tickType, price, attrib):
-        print('Tick Price: Ticker ID:', reqId, 'tickType:', TickTypeEnum.to_str(tickType), 'Price:', price, 'Time: ', time.strftime('%X %x %Z'), end=' ')
+        print('Tick Price: Ticker ID:', reqId, 'Symbol', eurusd_contract.symbol, 'tickType:', TickTypeEnum.to_str(tickType), 'Price:', price, 'Time: ', time.strftime('%X %x %Z'), end=' ')
 
     def tickSize(self, reqId, tickType, size):
-        print('Tick Size. Ticker ID:', reqId, 'ticktype:', TickTypeEnum.to_str(tickType), 'Size:', size)
+        print('Tick Size. Ticker ID:', reqId, 'Symbol', eurusd_contract.symbol, 'ticktype:', TickTypeEnum.to_str(tickType), 'Size:', size)
 
 def run_loop():
     app.run()
+
+conn = psycopg2.connect("dbname=test user=postgres")
+
+cur = conn.cursor()
+
+cur.execute("CREATE TABLE test (id serial PRIMARY KEY, num integer, data varchar);")
+cur.execute("INSERT INTO test (num, data) VALUES (%s, %s)",(100, "abc'def"))
+
+cur.execute("SELECT * FROM test;")
+cur.fetchone()
+(1, 100, "abc'def")
+
+conn.commit()
+
+cur.close()
+conn.close()
 
 
 app = IBapi()
